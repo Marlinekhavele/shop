@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_filters',
     'accounts',
     'orders',
     'products'
@@ -140,4 +141,9 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
 }
+# AT
+AFRICAS_TALKING_USERNAME=config('AFRICAS_TALKING_USERNAME')
+AFRICAS_TALKING_API_KEY=config('AFRICAS_TALKING_API_KEY')
+AFRICAS_TALKING_URL_ENDPOINT=config("AFRICAS_TALKING_URL_ENDPOINT")
+
 
