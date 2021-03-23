@@ -3,11 +3,17 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from accounts.models import Customer
 from accounts.serializers import CustomerSerializer
-
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
+    permission_classes = (
+        IsAuthenticated,
+        IsAuthenticatedOrReadOnly,
+    )
+    authentication_classes = (TokenAuthentication,)
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
     

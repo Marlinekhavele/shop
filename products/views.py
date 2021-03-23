@@ -1,6 +1,7 @@
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.viewsets import ModelViewSet
 from products.models import  Product
 from products.serializers import (
@@ -9,6 +10,11 @@ from products.serializers import (
 )
 
 class ProductViewSet(ModelViewSet):
+    permission_classes = (
+        IsAuthenticated,
+        IsAuthenticatedOrReadOnly,
+    )
+    authentication_classes = (TokenAuthentication,)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 

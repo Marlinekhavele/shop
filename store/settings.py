@@ -132,21 +132,40 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    ],
-}
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser', 
 
-
-REST_FRAMEWORK = {
+    ),
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
 }
+
+
+
 # AT
 AFRICAS_TALKING_USERNAME=config('AFRICAS_TALKING_USERNAME')
 AFRICAS_TALKING_API_KEY=config('AFRICAS_TALKING_API_KEY')
 AFRICAS_TALKING_URL_ENDPOINT=config("AFRICAS_TALKING_URL_ENDPOINT")
 
 
+OIDC_AUTH = {
+    # Specify OpenID Connect endpoint. Configuration will be
+    # automatically done based on the discovery document found
+    # at <endpoint>/.well-known/openid-configuration
+    'OIDC_ENDPOINT': 'https://accounts.google.com',
+
+    # The Claims Options can now be defined by a static string.
+    # ref: https://docs.authlib.org/en/latest/jose/jwt.html#jwt-payload-claims-validation
+    # The old OIDC_AUDIENCES option is removed in favor of this new option.
+    # `aud` is only required, when you set it as an essential claim.
+    'OIDC_CLAIMS_OPTIONS': {
+        'aud': {
+            'values': ['store'],
+            'essential': True,
+        }
+    }
+}

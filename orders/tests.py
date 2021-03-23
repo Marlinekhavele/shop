@@ -8,9 +8,9 @@ from orders.models import Order
 class OrderTests(APITestCase):
 
     def setUp(self):
-        self.small_margatita = Product.objects.create(
-            title="Small Margarita",
-            description='A small Margarita for 100',
+        self.chapstick = Product.objects.create(
+            title="Chapstick",
+            description='Chapstick goes for 350',
             price=100
         )
       
@@ -25,7 +25,7 @@ class OrderTests(APITestCase):
             'order_items':[
                 {
                     'quantity': 1,
-                    'product': self.small_margatita.id
+                    'product': self.chapstick.id
                 }
             ]
         }

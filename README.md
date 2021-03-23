@@ -20,4 +20,4 @@ source env/bin/activate
 - python manage.py runserver
 
 ##### Running Tests
-- pytest
+- python manage.py test
