@@ -9,6 +9,7 @@ Django==3.1.7
 django-filter==2.4.0
 djangorestframework==3.12.2
 drf-yasg==1.20.0
+gunicorn==20.0.4
 idna==2.10
 importlib-metadata==3.7.3
 inflection==0.5.1
@@ -18,6 +19,8 @@ Jinja2==2.11.3
 Markdown==3.3.4
 MarkupSafe==1.1.1
 packaging==20.9
+Pillow==8.1.2
+pkg-resources==0.0.0
 pluggy==0.13.1
 psycopg2==2.8.6
 py==1.10.0
@@ -35,4 +38,5 @@ toml==0.10.2
 typing-extensions==3.7.4.3
 uritemplate==3.0.1
 urllib3==1.26.4
+whitenoise==5.2.0
 zipp==3.4.1
