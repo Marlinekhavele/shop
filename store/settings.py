@@ -142,8 +142,8 @@ STATICFILES_DIRS = (
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.permissions.IsAuthenticated',
 
     ),
     'DEFAULT_FILTER_BACKENDS': (
