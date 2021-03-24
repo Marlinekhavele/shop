@@ -7,10 +7,11 @@ from orders.serializers import (
     OrderCreateSerializer
 )
 from orders.utils.send_sms import send_sms
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import permissions
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 
 class CreateOrderView(generics.CreateAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated,IsAuthenticatedOrReadOnly]
     queryset = Order.objects.all()
     serializer_class = OrderCreateSerializer
 
