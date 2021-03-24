@@ -3,13 +3,12 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from accounts.models import Customer
 from accounts.serializers import CustomerSerializer
-from rest_framework import permissions
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated,IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
     

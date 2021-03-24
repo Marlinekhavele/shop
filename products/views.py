@@ -4,18 +4,17 @@ from products.serializers import (
  ProductSizeSerializer,
     ProductSerializer
 )
-from rest_framework import permissions
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
+
 
 class ProductSizeViewSet(ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated,IsAuthenticatedOrReadOnly]
-
+    permission_classes = [IsAuthenticated]
     queryset = ProductSize.objects.all()
     serializer_class = ProductSizeSerializer
 
 
 class ProductViewSet(ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated,IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
     queryset = Product.objects.prefetch_related(
                 'available_sizes').all()
     serializer_class = ProductSerializer
